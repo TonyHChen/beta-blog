@@ -1,3 +1,57 @@
-<p>Hello!!</p>
+<!DOCTYPE html>
+<html>
 
-<%= link_to 'About', about_path %>
+  <head>
+    <title>Tony Chen</title>
+    <style>
+
+      .center{
+        text-align: center;
+        margin: auto;
+      }
+
+      .image{
+        margin: auto;
+        height: 400px;
+      }
+
+      #left{
+        float: left;
+        width: 298px;
+        height: 200px;
+        border-top: 2px solid black;
+      }
+
+      .leftborder{
+        border-left: 2px solid black;
+      }
+
+      #wrapper{
+        margin: 0 auto;
+        width: 600px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <h1 class="center">Welcome to my webpage!</h1>
+    <div class = "center">
+      <img class = "image" src = "https://snap-photos.s3.amazonaws.com/img-thumbs/960w/3S8PYJ7U5O.jpg">
+    </div>
+      
+    <div id="wrapper">  
+      <div id="left">
+        <p class="center">This is my new rails app</p>
+      </div>
+
+      <div id="left" class="leftborder">
+        <p class="center">By Tony Chen</p>
+        <div class="center"><%= link_to 'About', about_path %></div>
+      </div>
+
+    </div>
+  </body>
+
+</html>
