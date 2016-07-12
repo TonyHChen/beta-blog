@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
 	
+	#calls the set_article method for the edit, update, show, and destroy functions (saves having to write one line of code 4 times!)
+	before_action :set_article, only: [:edit, :update, :show, :destroy]
+
 	#for the /articles link, will be used to show all articles
 	def index
 		#grabs all articles from the database
@@ -11,7 +14,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
-		@article = Article.find(params[:id])
 	end
 
 	def create
@@ -34,7 +36,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		@article = Article.find(params[:id])
 		#article update similar to article save, but article.update takes an argument to whitelist
 		if @article.update(article_params)
 			flash[:notice] = "Article was successfully updated"
@@ -46,11 +47,9 @@ class ArticlesController < ApplicationController
 
 	#show action - shows a specific article based on the id of the article
 	def show
-		@article = Article.find(params[:id])
 	end
 
 	def destroy
-		@article = Article.find(params[:id])
 		@article.destroy
 
 		flash[:notice] = "Article was successfully deleted"
@@ -58,6 +57,10 @@ class ArticlesController < ApplicationController
 	end
 
 	private
+
+		def set_article
+			@article = Article.find(params[:id])
+		end
 		def article_params
 			params.require(:article).permit(:title, :description)
 		end
