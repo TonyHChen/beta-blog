@@ -8,15 +8,9 @@
 </head>
 <body>
 
-<!-- additional code that will show the flash used in the article.create-->
-<% flash.each do |name, msg| %>
-	<ul>
-		<li><%= msg %></li>
-	</ul>
-<% end %>
-<!-- -->
-
-<%= yield %>
+	<!--need to link to layouts-->
+	<%= render 'layouts/messages' %>
+	<%= yield %>
 
 </body>
 </html>
