@@ -1,5 +1,6 @@
-<h1>Add New Article</h1>
+<h1>Edit existing article</h1>
 
+<!-- this is copied from new.html.erb-->
 <!-- this will display any error messages in a list -->
 <% if @article.errors.any? %>
 	<h2>The following errors prevented the article from getting created</h2>
@@ -10,6 +11,7 @@
 	</ul>
 <% end %>
 
+<!-- because this is model-backed form, everything is already filled in!-->
 <%= form_for @article do |f| %>
 
 	<p>

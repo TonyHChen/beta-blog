@@ -1,6 +1,17 @@
 class ArticlesController < ApplicationController
+	
+	#for the /articles link, will be used to show all articles
+	def index
+		#grabs all articles from the database
+		@articles = Article.all
+	end
+
 	def new
 		@article = Article.new
+	end
+
+	def edit
+		@article = Article.find(params[:id])
 	end
 
 	def create
@@ -20,6 +31,17 @@ class ArticlesController < ApplicationController
 			render 'new'
 		end
 
+	end
+
+	def update
+		@article = Article.find(params[:id])
+		#article update similar to article save, but article.update takes an argument to whitelist
+		if @article.update(article_params)
+			flash[:notice] = "Article was successfully updated"
+			redirect_to article_path(@article)
+		else
+			render 'edit'
+		end
 	end
 
 	#show action - shows a specific article based on the id of the article
