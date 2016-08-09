@@ -1,15 +1,7 @@
 <!--partial, filesname starts with an underscore
 	Use this for things that are the same between files-->
 
-	<!-- this will display any error messages in a list -->
-<% if @article.errors.any? %>
-	<h2>The following errors prevented the article from getting created</h2>
-	<ul>
-		<% @article.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 
 <div class='row'>
 	<div class="col-xs-12">

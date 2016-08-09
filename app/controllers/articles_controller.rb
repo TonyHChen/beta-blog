@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 		#here's code that usually used in create - uses if to save the article 
 		if @article.save
 			#flash message will appear in application.html.erb file in views/layouts, see that file for flash
-			flash[:notice] = "Article was successfully created"
+			flash[:success] = "Article was successfully created"
 			redirect_to article_path(@article)
 		else
 			#if validation doesn't work, this runs - error!
@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
 	def update
 		#article update similar to article save, but article.update takes an argument to whitelist
 		if @article.update(article_params)
-			flash[:notice] = "Article was successfully updated"
+			flash[:success] = "Article was successfully updated"
 			redirect_to article_path(@article)
 		else
 			render 'edit'
@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article.destroy
 
-		flash[:notice] = "Article was successfully deleted"
+		flash[:danger] = "Article was successfully deleted"
 		redirect_to articles_path
 	end
 
