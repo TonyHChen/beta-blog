@@ -8,9 +8,19 @@
 </head>
 <body>
 
+	<!--renders the partial that will show the navigation-->
+	<%= render 'layouts/navigation' %>
+
 	<!--need to link to layouts-->
 	<%= render 'layouts/messages' %>
-	<%= yield %>
+	<!--where all the other views are served, everything above this will show up on every view of the application, therefore you can build navigation here-->
+	
+
+	<div class="container">
+		<%= yield %>
+	</div>
+
+	<%= render 'layouts/footer' %>
 
 </body>
 </html>
